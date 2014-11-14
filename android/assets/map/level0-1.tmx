@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="10" tilewidth="70" tileheight="70">
+ <tileset firstgid="1" name="background-tiles" tilewidth="70" tileheight="70">
+  <image source="../img/background-tiles.png" width="910" height="840"/>
+ </tileset>
+ <tileset firstgid="157" name="building-tiles" tilewidth="70" tileheight="70">
+  <image source="../img/building-tiles.png" width="980" height="490"/>
+ </tileset>
+ <tileset firstgid="255" name="ice-tiles" tilewidth="70" tileheight="70">
+  <image source="../img/ice-tiles.png" width="980" height="490"/>
+ </tileset>
+ <tileset firstgid="353" name="mushroom-tiles" tilewidth="70" tileheight="70">
+  <image source="../img/mushroom-tiles.png" width="490" height="490"/>
+ </tileset>
+ <tileset firstgid="402" name="request-tiles" tilewidth="70" tileheight="70">
+  <image source="../img/request-tiles.png" width="980" height="490"/>
+ </tileset>
+ <layer name="background" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAfbATiTUh4IwVmMaCZBcPD2bxtaGZtR5IrJcO8zWjmbQViXyKxF5pZHjjU2ZGAQ5EwKfpw4RAkTKlZ9lgwNnUAAUMphg==
+  </data>
+ </layer>
+ <layer name="construct" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAf7ADinUh4FwVmgcA2KL0ESm+ngnmfoezPVDLvE5T9Cck8HjLNmwnEH4F4FZSeSZHrGBjWQ/EyJPYooAwAAOnJE38=
+  </data>
+ </layer>
+ <layer name="construct2" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFww2sHWgHDCMAAON8AK4=
+  </data>
+ </layer>
+</map>
