@@ -17,17 +17,17 @@
  </tileset>
  <layer name="background" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYCAfbATiTUh4IwVmMaCZBcPD2bxtaGZtR5IrJcO8zWjmbQViXyKxF5pZHjjU2ZGAQ5EwKfpw4RAkTKlZ9lgwNnUAAUMphg==
+   eJw7yMDAsBeIDwHxMSrggzQ27y4aHmzm7QDiTVC8nUzzdlPRvH1AvB+ID0D5m4F4CxRvZYAAUszzIQETY54didgWCVPDPGQcggUDABR9geM=
   </data>
  </layer>
  <layer name="construct" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYCAf7ADinUh4FwVmgcA2KL0ESm+ngnmfoezPVDLvE5T9Cck8HjLNmwnEH4F4FZSeSZHrGBjWQ/EyJPYooAwAAOnJE38=
+   eJxjYKAtWAyl51LBrNtYxG4OIvOoAWYD8XcoDQNvgHgVDvXcBMxbD8RfoTQIrIOyl0HpY2S7lDDwgtKlUFoQCyYG2CFhXyQchgVTGwAA4LMSpQ==
   </data>
  </layer>
  <layer name="construct2" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFww2sHWgHDCMAAON8AK4=
+   eJxjYBgFo4AwOEYFM/yx4MEOAMxjAlI=
   </data>
  </layer>
 </map>
