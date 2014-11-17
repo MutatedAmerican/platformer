@@ -15,19 +15,27 @@
  <tileset firstgid="402" name="request-tiles" tilewidth="70" tileheight="70">
   <image source="../img/request-tiles.png" width="980" height="490"/>
  </tileset>
+ <tileset firstgid="500" name="bg_grasslands" tilewidth="70" tileheight="70">
+  <image source="../img/bg_grasslands.png" width="1024" height="512"/>
+ </tileset>
+ <layer name="sky" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJytz8VOREEURdHqh7u7u7t7grvz/z/RuC6GEF6FEAZrsnPrJJXNhHDLHfc88Eg2pT/xzAuvvPFOSELIJOnv/rqXkEMueeRTEOmFFFFMCaWUUU4FlVRRTQ211EV6PQ000kQzLbTSRjsddNJFNz2R3ksf/QwwyBDDjDDKGONMMMlUpE8zwyxzzLPAIkvsc8AhRxxzEumnnHHOBZdccc3N5034vR33u+yxyRbbyde+zAqrrLHORkr/vv/T3n//9wN+YEQP
+  </data>
+ </layer>
  <layer name="background" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJw7yMDAsBeIDwHxMSrggzQ27y4aHmzm7QDiTVC8nUzzdlPRvH1AvB+ID0D5m4F4CxRvZYAAUszzIQETY54didgWCVPDPGQcggUDABR9geM=
+   eJw7yMDAsBeIDzFQBxykg3m3gfguGr4ziMwDgW1AvAmKtxNpFsy83VQ0bx8Q7wfiA2jim4F4CxRvJcE8HxIwMcCORGyLhKlhHjIOwYIB6zourQ==
   </data>
  </layer>
  <layer name="construct" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYKAtWAyl51LBrNtYxG4OIvOoAWYD8XcoDQNvgHgVDvXcBMxbD8RfoTQIrIOyl0HpY2S7lDDwgtKlUFoQCyYG2CFhXyQchgVTGwAA4LMSpQ==
+   eJxjYKAPWAyl59LJPmKBDSP1zDIFmmUMxFYUmDkbiL9DaXTz3gDxKjT13ATMWw/EX6E0CNijuW0Z+U4lCLygdCmUFsSCiQF2SNgXCYdhwdQGAMFTDjI=
   </data>
  </layer>
  <layer name="construct2" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4AwOEYFM/yx4MEOAMxjAlI=
+   eJxjYBgFIwkUQen1UMyARNMa+GPBgx0AAOgpBAs=
   </data>
  </layer>
 </map>
