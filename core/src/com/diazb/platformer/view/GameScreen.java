@@ -20,6 +20,8 @@ public class GameScreen implements Screen{
         renderer= new OrthogonalTiledMapRenderer(map, 1/70f);
         //create camera's length and height variables
         camera= new OrthographicCamera(14f, 14f);
+        //set the position of the camera on the level
+        camera.position.set(camera.viewportWidth/2, camera.viewportHeight/2, 0f);
     }
 
     @Override
