@@ -25,7 +25,7 @@
  </layer>
  <layer name="background" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJw7yMDAsBeIDzFQBxykg3m3gfguGr4ziMwDgW1AvAmKtxNpFsy83VQ0bx8Q7wfiA2jim4F4CxRvJcE8XxIwMcCOREzIfFLNQ8YhWDAACP0u6A==
+   eJw7yMDAsBeIDzFQBxykg3m3gfgWGr4ziMwDgW1AvAmKtxNpFsy83VQ0bx8Q7wfiA2jim4F4CxRvJcE8XxIwMcCOREzIfFLNQ8YhWDAA034u0A==
   </data>
  </layer>
  <layer name="construct" width="20" height="10">
