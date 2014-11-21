@@ -3,6 +3,7 @@ package com.diazb.platformer.view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -26,12 +27,16 @@ public class GameScreen implements Screen{
         //modify code to change aspect ratio
         camera= new OrthographicCamera(14f, 14f * (height/width));
         //set the position of the camera on the level
-
         camera.position.set(camera.viewportWidth/2f, camera.viewportHeight/2f, 0f);
     }
 
     @Override
     public void render(float delta) {
+        //set the color of the clear
+        Gdx.gl.glClearColor(0.81f, 0.98f, 1f, 1f);
+        //clear the screen
+        Gdx.gl.glClear(GL20. GL_COLOR_BUFFER_BIT);
+
         //able to render the map once the camera is on the move
         camera.update();
         renderer.setView(camera);
@@ -40,8 +45,11 @@ public class GameScreen implements Screen{
 
     @Override
     public void resize(int width, int height) {
-        //W.i.P
-
+        //call on camera object and set viewportWidth and viewportHeight
+        camera.viewportWidth= 14f;
+        camera.viewportHeight= 14f * height/width;
+        //update camera
+        camera.update();
     }
 
     @Override

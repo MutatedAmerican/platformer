@@ -20,7 +20,7 @@
  </tileset>
  <layer name="sky" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJy1z0VSA0AQQNFJgAQnuBOc4O4W3B3uf4ng+i7ALCiyeJtf1V3dhUQIjzzxzAuvFH7pb7zzwSdffBOSISRIUkIpZaRIR3o5FVRSRTU11FIXmfvrfRnqaaCRJpojvYVW2ming0666KaHLL300c9ApA8yxDAj5BhljHEmmGSKaWaYjfQ55llgkSWWWWGVY0445YxzLiL9kiuuueGWO+55YI11Nthki+1Iz7PDLnvsc8AhR0XY99///gCohD2L
+   eJytz7VSA1AQQNGXAMHdJbi7uxPc7f9/IriegoYir4AUp7kzu7ObTYTwwCNPPPNCNkd/5Y13Pvjki5AMIUGSAgopIkVxpJdQShnlVFBJFdWRub/eV0MtddTTQGOkN9FMC6200U4HaTrpopseeumL9H4GGGSIYUYYZYxxJphkimlmIn2WOeZZYJElllnhiGNOOOWM80i/4JIrrrnhljvuWWWNdTbYZCvSt9lhlz0y7HPA4c9cJvz2n335/vcbtYQ9oQ==
   </data>
  </layer>
  <layer name="background" width="20" height="10">
@@ -30,7 +30,7 @@
  </layer>
  <layer name="construct" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYKAPWAyl59LJPmKBDSP1zDIFmmUMxFYUmDkbiL9DaXTz3gDxKjT13ATMWw/EX6H0RSC2Z4TQ66F4GZSmBfCC0qVQWhALJgbYIWFfJByGBVMbAAAGFhHh
+   eJxjYKAPWAyl51LBrNtUMAMGbBixm3eTDLNMgWYZA7EVI/numQ3E36E0unlvgHgVmnpuAuatB+KvUPoiENszQuj1ULwMStMCeEHpUigtiAUjA1s0TAiEYcGEACnmgwAAjakUeg==
   </data>
  </layer>
  <layer name="construct2" width="20" height="10">
