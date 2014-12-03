@@ -2,6 +2,7 @@ package com.diazb.platformer.model;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 
 public class Player {
@@ -16,5 +17,13 @@ public class Player {
         position= new Vector2(0, 0);
         //path to get texture to store the player images
         spriteSheet= new Texture(Gdx.files.internal("img/aliens.png"));
+    }
+    //draw character
+    public void draw(Batch spriteBatch){
+        spriteBatch.draw(spriteSheet, 0, 0, 70, 100);
+    }
+    //update properties on the character constantly
+    public void update(float deltaTime){
+
     }
 }

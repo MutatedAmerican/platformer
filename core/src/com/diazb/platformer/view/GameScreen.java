@@ -5,15 +5,20 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.diazb.platformer.model.Player;
 
 public class GameScreen implements Screen{
     //create new variables to display map
     public TiledMap map;
     public OrthogonalTiledMapRenderer renderer;
     public OrthographicCamera camera;
+
+    public SpriteBatch spriteBatch;
+    public Player player;
 
     public GameScreen() {
         //load up level map from my asset folder
@@ -28,6 +33,11 @@ public class GameScreen implements Screen{
         camera= new OrthographicCamera(14f, 26f * (height/width));
         //set the position of the camera on the level
         camera.position.set(camera.viewportWidth/2f, camera.viewportHeight/2f, 0f);
+
+        //enable to group draw 2-D sprites on the screen at once
+        spriteBatch= new SpriteBatch();
+        //render the player
+        player= new Player();
     }
 
     @Override
@@ -41,6 +51,12 @@ public class GameScreen implements Screen{
         camera.update();
         renderer.setView(camera);
         renderer.render();
+
+        //call on sprite batch to start drawing, then end
+        spriteBatch.begin();
+        //use sprite batch object to draw the player
+        player.draw(spriteBatch);
+        spriteBatch.end();
     }
 
     @Override
