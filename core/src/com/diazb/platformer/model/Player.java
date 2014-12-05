@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 public class Player {
-    //create x and y position on screen
+    //create x and y position of the character on screen
     public Vector2 position;
     //store image on the screen
     public Texture spriteSheet;
@@ -17,7 +17,7 @@ public class Player {
     //generate constructor for player
     public Player() {
         //origin at the screen [(0,0) is bottom left]
-        position= new Vector2(0, 0);
+        position= new Vector2(8, 8);
         //path to get texture to store the player images
         spriteSheet= new Texture(Gdx.files.internal("img/aliens.png"));
         //splits the sprite sheets into width and height
@@ -48,10 +48,10 @@ public class Player {
     }
     //draw character
     public void draw(Batch spriteBatch){
-        spriteBatch.draw(spriteFrames[22], 0, 0, 70, 100);
+        spriteBatch.draw(spriteFrames[22], position.x, position.y, 70 * (1/70f), 100 * (1/70f));
     }
     //update properties on the character constantly
     public void update(float deltaTime){
-
+        position.x+=deltaTime;
     }
 }
