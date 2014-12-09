@@ -2,6 +2,7 @@ package com.diazb.platformer.model;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -13,6 +14,10 @@ public class Player {
     public Texture spriteSheet;
     //cut up the sprite sheet
     public TextureRegion[] spriteFrames;
+    //create animation of player by sprite sheet
+    public Animation animation;
+    //create the time of change frame of animation
+    private float stateTime;
 
     //generate constructor for player
     public Player() {
@@ -44,14 +49,24 @@ public class Player {
                 spriteFrames[counter++]= sprite;
             }
         }
+        //create new array to store in animation frames
+        TextureRegion[] animationFrames= new TextureRegion[2];
+        //store in sprite animation sheet inside animationFrames
+        animationFrames[0]= spriteFrames[23];
+        animationFrames[1]= spriteFrames[24];
+        //time take to change frame
+        animation= new Animation(0.35f, animationFrames);
 
+        //game time; counter of the game
+        stateTime= 0f;
     }
     //draw character
     public void draw(Batch spriteBatch){
-        spriteBatch.draw(spriteFrames[22], position.x, position.y, 70 * (1/70f), 100 * (1/70f));
+        spriteBatch.draw(animation.getKeyFrame(stateTime, true), position.x, position.y, 70 * (1/70f), 100 * (1/70f));
     }
     //update properties on the character constantly
     public void update(float deltaTime){
-        position.x+=deltaTime;
+        stateTime+= deltaTime;
+        position.y+= deltaTime;
     }
 }

@@ -31,7 +31,7 @@ public class GameScreen implements Screen{
         float height= Gdx.graphics.getHeight();
         //create camera's length and height variables
         //modify code to change aspect ratio
-        camera= new OrthographicCamera(14f, 26f * (height/width));
+        camera= new OrthographicCamera(14f, 36f * (height/width));
         //set the position of the camera on the level
         camera.position.set(camera.viewportWidth/2f, camera.viewportHeight/2f, 0f);
 
