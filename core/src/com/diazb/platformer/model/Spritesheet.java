@@ -11,8 +11,6 @@ public class Spritesheet {
     public Texture spriteSheet;
     //cut up the sprite sheet
     public TextureRegion[] spriteFrames;
-    //create animation of player by sprite sheet
-    public Animation animation;
 
     public Spritesheet(String pathToFile, int width, int height) {
 
@@ -42,22 +40,19 @@ public class Spritesheet {
                 spriteFrames[counter++]= sprite;
             }
         }
-        //create new array to store in animation frames
-        TextureRegion[] animationFrames= new TextureRegion[2];
-        //store in sprite animation sheet inside animationFrames
-        animationFrames[0]= spriteFrames[23];
-        animationFrames[1]= spriteFrames[24];
-        //time take to change frame
-        animation= new Animation(0.35f, animationFrames);
-
     }
 
-    public Animation createAnimation(){
+    public Animation createAnimation(int startFrame, int finishFrame, float animationSpeed){
+        //subtract to count how many frames needed for animation
+        int counter= (finishFrame+ 1) - startFrame;
         //create new array to store in animation frames
-        TextureRegion[] animationFrames= new TextureRegion[2];
-        //store in sprite animation sheet inside animationFrames
-        animationFrames[0]= spriteFrames[23];
-        animationFrames[1]= spriteFrames[24];
-        return animation;
-    }
-}
+        TextureRegion[] animationFrames= new TextureRegion[counter];
+        //get all frames within the frame count, starts last to beginning
+        for(int index= finishFrame; index >= startFrame; index--){
+        //picking position and storing
+            animationFrames[--counter]= spriteFrames[index];
+        }
+        //return animations and run in a certain amount of frames
+        return new Animation(animationSpeed, animationFrames);
+        }
+        }

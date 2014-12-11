@@ -32,7 +32,7 @@ public class Player {
         //store sprite-sheet.java in variable to use
         spritesheet= new Spritesheet("img/aliens.png", width, height);
         //store in animation inside variable
-        animation= spritesheet.createAnimation();
+        animation= spritesheet.createAnimation(31, 32, 0.4f);
         //game time; counter of the game
         stateTime= 0f;
     }
@@ -44,6 +44,6 @@ public class Player {
     //update properties on the character constantly
     public void update(float deltaTime){
         stateTime+= deltaTime;
-        position.y+= deltaTime;
+        position.x+= deltaTime;
     }
 }
