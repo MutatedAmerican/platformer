@@ -55,4 +55,20 @@ public class Spritesheet {
         //return animations and run in a certain amount of frames
         return new Animation(animationSpeed, animationFrames);
         }
+
+    public Animation flipAnimation(Animation originalAnimation, boolean flipX, boolean flipY){
+        //flip character to the other side
+        int frameCount= originalAnimation.getKeyFrames().length;
+        //count how many frames to flip
+        TextureRegion[] flippedFrames= new TextureRegion[frameCount];
+
+        for(int index= 0; index < frameCount; index++) {
+            //store in original animation to flip
+            flippedFrames[index]= originalAnimation.getKeyFrames() [index];
+            //tell which to flip
+            flippedFrames[index].flip(flipX, flipY);
+        }
+        //return flipped animations
+        return new Animation(originalAnimation.getFrameDuration(), flippedFrames);
+        }
         }
