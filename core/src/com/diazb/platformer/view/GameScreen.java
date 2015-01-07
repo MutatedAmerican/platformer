@@ -10,6 +10,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.diazb.platformer.model.Player;
 
 public class GameScreen implements Screen{
@@ -21,11 +24,18 @@ public class GameScreen implements Screen{
     public Batch spriteBatch;
     public Player player;
 
+    public static World gameWorld;
+    private Box2DDebugRenderer debugRenderer;
+
     public GameScreen() {
         //load up level map from my asset folder
         map = new TmxMapLoader().load("map/level0-1.tmx");
         //render up tiles on the map
         renderer= new OrthogonalTiledMapRenderer(map, 1/70f);
+        //apply gravity to the game
+        gameWorld= new World(new Vector2(0, -10), true);
+        //display shapes
+        debugRenderer= new Box2DDebugRenderer();
         //get the height and width of the screen and store them into variables
         float width= Gdx.graphics.getWidth();
         float height= Gdx.graphics.getHeight();
@@ -59,6 +69,8 @@ public class GameScreen implements Screen{
         //use sprite batch object to draw the player
         player.draw(spriteBatch);
         spriteBatch.end();
+
+        debugRenderer.render(gameWorld, camera.combined);
 
     }
 

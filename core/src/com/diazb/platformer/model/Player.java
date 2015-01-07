@@ -6,6 +6,11 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.diazb.platformer.view.GameScreen;
 
 import java.util.HashMap;
 
@@ -14,6 +19,8 @@ public class Player {
     public Vector2 position;
     //create storage to put java.sprite-sheet
     public Spritesheet spritesheet;
+    //store in what is our current animation
+    public String currentAnimation;
     //store in width of sprite sheet
     public int width;
     //store in height of sprite sheet
@@ -27,7 +34,7 @@ public class Player {
     public Player() {
         //origin at the screen [(0,0) is bottom left]
         position= new Vector2(8, 8);
-        //store in animations
+        //initialize animations variable
         animations= new HashMap<String, Animation>();
         //store in number of pixels as width
         width= 70;
@@ -38,7 +45,8 @@ public class Player {
         //store in animations
         animations.put("walk", spritesheet.createAnimation(31, 32, .1f));
         animations.put("swim", spritesheet.createAnimation(29, 30, .1f));
-        animations.put("jump", spritesheet.createAnimation(27, 28, .1f));
+        animations.put("start", spritesheet.createAnimation(28, 28, .1f));
+        animations.put("jump", spritesheet.createAnimation(27, 27, .1f));
         animations.put("hurt", spritesheet.createAnimation(26, 26, .1f));
         animations.put("duck", spritesheet.createAnimation(25, 25, .1f));
         animations.put("climb", spritesheet.createAnimation(23, 24, .1f));
@@ -46,23 +54,44 @@ public class Player {
         //flip animation
         animations.put("walkFlip", spritesheet.flipAnimation(animations.get("walk"), true, false));
         animations.put("swimFlip", spritesheet.flipAnimation(animations.get("swim"), true, false));
+        animations.put("startFlip", spritesheet.flipAnimation(animations.get("start"), true, false));
         animations.put("jumpFlip", spritesheet.flipAnimation(animations.get("jump"), true, false));
         animations.put("hurtFlip", spritesheet.flipAnimation(animations.get("hurt"), true, false));
         animations.put("duckFlip", spritesheet.flipAnimation(animations.get("duck"), true, false));
-        animations.put("climbFlip", spritesheet.flipAnimation(animations.get("climb"), true, false));
-        animations.put("standFlip", spritesheet.flipAnimation(animations.get("stand"), true, false));
+        //store in animation type
+        currentAnimation= "walk";
         //game time; counter of the game
         stateTime= 0f;
+
+        //set body definition in game world and set position
+        BodyDef bodyDefinition= new BodyDef();
+        bodyDefinition.type= BodyDef.BodyType.DynamicBody;
+        bodyDefinition.position.set(position);
+
+        //create body in game world
+        Body playerBody= GameScreen.gameWorld.createBody(bodyDefinition);
+        //create shape in game world
+        playerBody.setUserData(this);
+        //create polygon shape
+        PolygonShape rectangleShape= new PolygonShape();
+        //set height
+        rectangleShape.setAsBox(width/2f, height/2f, new Vector2(width/2f, height/2f), 0f);
+        //create new fixture definition
+        FixtureDef fixturedefinition= new FixtureDef();
+        //attach shape to out body
+        fixturedefinition.shape= rectangleShape;
+        //apply shape to player body
+        playerBody.createFixture(fixturedefinition);
+        //deletes the shape
+        rectangleShape.dispose();
     }
     //draw character
     public void draw(Batch spriteBatch){
-        spriteBatch.draw(animations.get("walk").getKeyFrame(stateTime, true), position.x, position.y, width * (1/70f), height * (1/70f));
+        spriteBatch.draw(animations.get(currentAnimation).getKeyFrame(stateTime, true), position.x, position.y, width * (1/70f), height * (1/70f));
     }
     //update properties on the character constantly
     public void update(float deltaTime){
         stateTime+= deltaTime;
-        //select direction of character
-        position.x+= deltaTime;
 
     }
 }
