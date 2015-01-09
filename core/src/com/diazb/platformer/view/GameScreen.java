@@ -48,7 +48,7 @@ public class GameScreen implements Screen{
         //enable to group draw 2-D sprites on the screen at once
         spriteBatch= renderer.getSpriteBatch();
         //render the player
-        player= new Player();
+        player= new Player(70, 100);
     }
 
     @Override

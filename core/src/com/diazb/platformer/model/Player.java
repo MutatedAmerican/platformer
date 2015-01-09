@@ -22,24 +22,24 @@ public class Player {
     //store in what is our current animation
     public String currentAnimation;
     //store in width of sprite sheet
-    public int width;
+    public float width;
     //store in height of sprite sheet
-    public int height;
+    public float height;
     //create the time of change frame of animation
     private float stateTime;
     //create storage for animations
     private HashMap<String, Animation> animations;
 
     //generate constructor for player
-    public Player() {
+    public Player(int width,int height) {
         //origin at the screen [(0,0) is bottom left]
         position= new Vector2(8, 8);
         //initialize animations variable
         animations= new HashMap<String, Animation>();
         //store in number of pixels as width
-        width= 70;
+       this.width= width* (1/70f);
         //store in number of pixels as height
-        height= 100;
+        this.height= height* (1/70f);
         //store sprite-sheet.java in variable to use
         spritesheet= new Spritesheet("img/aliens.png", width, height);
         //store in animations
@@ -75,7 +75,7 @@ public class Player {
         //create polygon shape
         PolygonShape rectangleShape= new PolygonShape();
         //set height
-        rectangleShape.setAsBox(width/2f, height/2f, new Vector2(width/2f, height/2f), 0f);
+        rectangleShape.setAsBox(this.width/2f, this.height/2f, new Vector2(this.width/2f, this.height/2f), 0f);
         //create new fixture definition
         FixtureDef fixturedefinition= new FixtureDef();
         //attach shape to out body
@@ -87,7 +87,7 @@ public class Player {
     }
     //draw character
     public void draw(Batch spriteBatch){
-        spriteBatch.draw(animations.get(currentAnimation).getKeyFrame(stateTime, true), position.x, position.y, width * (1/70f), height * (1/70f));
+        spriteBatch.draw(animations.get(currentAnimation).getKeyFrame(stateTime, true), position.x, position.y, width, height);
     }
     //update properties on the character constantly
     public void update(float deltaTime){
