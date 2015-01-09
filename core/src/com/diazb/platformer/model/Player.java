@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.diazb.platformer.controller.LevelController;
 import com.diazb.platformer.view.GameScreen;
 
 import java.util.HashMap;
@@ -69,7 +70,7 @@ public class Player {
         bodyDefinition.position.set(position);
 
         //create body in game world
-        Body playerBody= GameScreen.gameWorld.createBody(bodyDefinition);
+        Body playerBody= LevelController.gameWorld.createBody(bodyDefinition);
         //create shape in game world
         playerBody.setUserData(this);
         //create polygon shape

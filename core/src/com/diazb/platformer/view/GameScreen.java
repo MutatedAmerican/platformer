@@ -1,6 +1,5 @@
 package com.diazb.platformer.view;
 //package and import classes
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -13,42 +12,20 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.diazb.platformer.controller.CameraController;
+import com.diazb.platformer.controller.LevelController;
+import com.diazb.platformer.controller.PlayerController;
 import com.diazb.platformer.model.Player;
 
 public class GameScreen implements Screen{
-    //create new variables to display map
-    public TiledMap map;
-    public OrthogonalTiledMapRenderer renderer;
-    public OrthographicCamera camera;
-
-    public Batch spriteBatch;
-    public Player player;
-
-    public static World gameWorld;
-    private Box2DDebugRenderer debugRenderer;
 
     public GameScreen() {
-        //load up level map from my asset folder
-        map = new TmxMapLoader().load("map/level0-1.tmx");
-        //render up tiles on the map
-        renderer= new OrthogonalTiledMapRenderer(map, 1/70f);
-        //apply gravity to the game
-        gameWorld= new World(new Vector2(0, -10), true);
-        //display shapes
-        debugRenderer= new Box2DDebugRenderer();
-        //get the height and width of the screen and store them into variables
-        float width= Gdx.graphics.getWidth();
-        float height= Gdx.graphics.getHeight();
-        //create camera's length and height variables
-        //modify code to change aspect ratio
-        camera= new OrthographicCamera(14f, 26f * (height/width));
-        //set the position of the camera on the level
-        camera.position.set(camera.viewportWidth/2f, camera.viewportHeight/2f, 0f);
-
-        //enable to group draw 2-D sprites on the screen at once
-        spriteBatch= renderer.getSpriteBatch();
-        //render the player
-        player= new Player(70, 100);
+        //initalize LevelController
+        LevelController.initalizeController();
+        //initalize CameraController
+        CameraController.initializeController();
+        //initalize PlayerController
+        PlayerController.initializeController();
     }
 
     @Override
@@ -57,36 +34,25 @@ public class GameScreen implements Screen{
         Gdx.gl.glClearColor(0.81f, 0.98f, 1f, 1f);
         //clear the screen
         Gdx.gl.glClear(GL20. GL_COLOR_BUFFER_BIT);
-
-        //able to render the map once the camera is on the move
-        camera.update();
-        renderer.setView(camera);
-        renderer.render();
-        //update character position constantly
-        player.update(delta);
-        //call on sprite batch to start drawing, then end
-        spriteBatch.begin();
-        //use sprite batch object to draw the player
-        player.draw(spriteBatch);
-        spriteBatch.end();
-
-        debugRenderer.render(gameWorld, camera.combined);
-
+        //update CameraController
+        CameraController.update();
+        //update LevelController
+        LevelController.update();
+        //update PlayerController
+        PlayerController.update(delta);
+        //draw LevelController
+        LevelController.draw();
     }
 
     @Override
     public void resize(int width, int height) {
-        //call on camera object and set viewportWidth and viewportHeight
-        camera.viewportWidth= 14f;
-        camera.viewportHeight= 14f * height/width;
-        //update camera
-        camera.update();
+        //resize CameraController
+        CameraController.resize(width, height);
     }
 
     @Override
     public void show() {
         //W.i.P
-
     }
 
     @Override
