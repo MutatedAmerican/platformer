@@ -38,9 +38,9 @@ public class Player {
         //initialize animations variable
         animations= new HashMap<String, Animation>();
         //store in number of pixels as width
-       this.width= width* (1/70f);
+        this.width= width* (LevelController.UNIT_SCALE);
         //store in number of pixels as height
-        this.height= height* (1/70f);
+        this.height= height* (LevelController.UNIT_SCALE);
         //store sprite-sheet.java in variable to use
         spritesheet= new Spritesheet("img/aliens.png", width, height);
         //store in animations
