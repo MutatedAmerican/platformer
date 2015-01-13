@@ -1,5 +1,6 @@
 package com.diazb.platformer.controller;
 
+import com.badlogic.gdx.math.Vector2;
 import com.diazb.platformer.model.Player;
 
 public class PlayerController {
@@ -8,7 +9,7 @@ public class PlayerController {
 
     public static void initializeController(){
         //render the player
-        player= new Player(70, 100);
+        player= new Player(new Vector2(8, 8), 70, 100);
     }
 
     public static void update(float deltaTime){

@@ -15,34 +15,12 @@ import com.diazb.platformer.view.GameScreen;
 
 import java.util.HashMap;
 
-public class Player {
-    //create x and y position of the character on screen
-    public Vector2 position;
-    //create storage to put java.sprite-sheet
-    public Spritesheet spritesheet;
-    //store in what is our current animation
-    public String currentAnimation;
-    //store in width of sprite sheet
-    public float width;
-    //store in height of sprite sheet
-    public float height;
-    //create the time of change frame of animation
-    private float stateTime;
-    //create storage for animations
-    private HashMap<String, Animation> animations;
+public class Player extends Sprite{
 
     //generate constructor for player
-    public Player(int width,int height) {
-        //origin at the screen [(0,0) is bottom left]
-        position= new Vector2(8, 8);
-        //initialize animations variable
-        animations= new HashMap<String, Animation>();
-        //store in number of pixels as width
-        this.width= width* (LevelController.UNIT_SCALE);
-        //store in number of pixels as height
-        this.height= height* (LevelController.UNIT_SCALE);
-        //store sprite-sheet.java in variable to use
-        spritesheet= new Spritesheet("img/aliens.png", width, height);
+    public Player(Vector2 position, int width,int height) {
+        //call in parent function
+        super(position, width, height);
         //store in animations
         animations.put("walk", spritesheet.createAnimation(31, 32, .1f));
         animations.put("swim", spritesheet.createAnimation(29, 30, .1f));
@@ -59,16 +37,11 @@ public class Player {
         animations.put("jumpFlip", spritesheet.flipAnimation(animations.get("jump"), true, false));
         animations.put("hurtFlip", spritesheet.flipAnimation(animations.get("hurt"), true, false));
         animations.put("duckFlip", spritesheet.flipAnimation(animations.get("duck"), true, false));
-        //store in animation type
-        currentAnimation= "walk";
-        //game time; counter of the game
-        stateTime= 0f;
 
         //set body definition in game world and set position
         BodyDef bodyDefinition= new BodyDef();
         bodyDefinition.type= BodyDef.BodyType.DynamicBody;
         bodyDefinition.position.set(position);
-
         //create body in game world
         Body playerBody= LevelController.gameWorld.createBody(bodyDefinition);
         //create shape in game world
@@ -78,21 +51,20 @@ public class Player {
         //set height
         rectangleShape.setAsBox(this.width/2f, this.height/2f, new Vector2(this.width/2f, this.height/2f), 0f);
         //create new fixture definition
-        FixtureDef fixturedefinition= new FixtureDef();
+        FixtureDef fixtureDefinition= new FixtureDef();
         //attach shape to out body
-        fixturedefinition.shape= rectangleShape;
+        fixtureDefinition.shape= rectangleShape;
         //apply shape to player body
-        playerBody.createFixture(fixturedefinition);
+        playerBody.createFixture(fixtureDefinition);
         //deletes the shape
         rectangleShape.dispose();
     }
     //draw character
     public void draw(Batch spriteBatch){
-        spriteBatch.draw(animations.get(currentAnimation).getKeyFrame(stateTime, true), position.x, position.y, width, height);
+        super.draw(spriteBatch);
     }
     //update properties on the character constantly
     public void update(float deltaTime){
-        stateTime+= deltaTime;
-
+        super.update(deltaTime);
     }
 }
