@@ -29,7 +29,7 @@ public class LevelController {
         //render up tiles on the map
         renderer= new OrthogonalTiledMapRenderer(level.map, UNIT_SCALE);
         //apply gravity to the game
-        gameWorld= new World(new Vector2(0, -10), true);
+        gameWorld= new World(new Vector2(0, 0), true);
         //
         worldBodies= new Array<Body>();
         //display shapes
@@ -61,9 +61,9 @@ public class LevelController {
 
         for(Body body: worldBodies){
             //get player's data
-            Sprite playerbody= (Sprite)body.getUserData();
+            Sprite spriteBody= (Sprite)body.getUserData();
             //access to its body position
-            playerbody.position= body.getPosition();
+            spriteBody.position= body.getPosition();
         }
     }
 }

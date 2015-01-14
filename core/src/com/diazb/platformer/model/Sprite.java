@@ -3,11 +3,14 @@ package com.diazb.platformer.model;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.diazb.platformer.controller.LevelController;
 
 import java.util.HashMap;
 
 public class Sprite {
+    //
+    public Body physicsBody;
     //create x and y position of the character on screen
     public Vector2 position;
     //create storage to put java.sprite-sheet

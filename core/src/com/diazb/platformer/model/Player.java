@@ -43,9 +43,9 @@ public class Player extends Sprite{
         bodyDefinition.type= BodyDef.BodyType.DynamicBody;
         bodyDefinition.position.set(position);
         //create body in game world
-        Body playerBody= LevelController.gameWorld.createBody(bodyDefinition);
+        Body physicsBody= LevelController.gameWorld.createBody(bodyDefinition);
         //create shape in game world
-        playerBody.setUserData(this);
+        physicsBody.setUserData(this);
         //create polygon shape
         PolygonShape rectangleShape= new PolygonShape();
         //set height
@@ -55,7 +55,7 @@ public class Player extends Sprite{
         //attach shape to out body
         fixtureDefinition.shape= rectangleShape;
         //apply shape to player body
-        playerBody.createFixture(fixtureDefinition);
+        physicsBody.createFixture(fixtureDefinition);
         //deletes the shape
         rectangleShape.dispose();
     }
