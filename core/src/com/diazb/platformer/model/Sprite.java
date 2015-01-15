@@ -26,7 +26,7 @@ public class Sprite {
     //create storage for animations
     protected HashMap<String, Animation> animations;
 
-    public Sprite(Vector2 position, int width,int height){
+    public Sprite(Vector2 position, int width,int height, String sheetPath){
         //origin at the screen [(0,0) is bottom left]
         this.position= position;
         //initialize animations variable
@@ -36,7 +36,7 @@ public class Sprite {
         //store in number of pixels as height
         this.height= height* (LevelController.UNIT_SCALE);
         //store sprite-sheet.java in variable to use
-        spritesheet= new Spritesheet("img/aliens.png", width, height);
+        spritesheet= new Spritesheet(sheetPath, width, height);
         //store in animation type
         currentAnimation= "walk";
         //game time; counter of the game

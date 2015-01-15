@@ -11,11 +11,13 @@ public class PlayerController {
     //
     private static final float VELOCITY= 1f;
     //
+    private static final float VELOCITY2= -1f;
+    //
     private static final float MAX_VELOCITY= 5f;
 
     public static void initializeController(){
         //render the player
-        player= new Player(new Vector2(8, 8), 70, 100);
+        player= new Player(new Vector2(8, 8), 70, 100, "img/aliens.png");
     }
 
     public static void update(float deltaTime){
@@ -40,6 +42,12 @@ public class PlayerController {
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             //
             player.physicsBody.applyLinearImpulse(VELOCITY, 0f, position.x, position.y, true);
+        }
+
+        //
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+            //
+            player.physicsBody.applyLinearImpulse(VELOCITY2, 0f, position.x, position.y, true);
         }
     }
 }

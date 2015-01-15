@@ -3,19 +3,10 @@ package com.diazb.platformer.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.World;
 import com.diazb.platformer.controller.CameraController;
+import com.diazb.platformer.controller.EnemyController;
 import com.diazb.platformer.controller.LevelController;
 import com.diazb.platformer.controller.PlayerController;
-import com.diazb.platformer.model.Player;
 
 public class GameScreen implements Screen{
 
@@ -26,6 +17,8 @@ public class GameScreen implements Screen{
         CameraController.initializeController();
         //initalize PlayerController
         PlayerController.initializeController();
+        //initalize EnemyController
+        EnemyController.initializeController();
     }
 
     @Override
@@ -40,6 +33,8 @@ public class GameScreen implements Screen{
         LevelController.update();
         //update PlayerController
         PlayerController.update(delta);
+        //update EnemyController
+        EnemyController.update(delta);
         //draw LevelController
         LevelController.draw();
     }

@@ -7,28 +7,14 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.diazb.platformer.controller.LevelController;
 
-public class Player extends Sprite{
+public class Enemy extends Sprite{
 
     //generate constructor for player
-    public Player(Vector2 position, int width,int height, String sheetPath) {
+    public Enemy(Vector2 position, int width,int height, String sheetPath) {
         //call in parent function
         super(position, width, height, sheetPath);
         //store in animations
-        animations.put("walk", spritesheet.createAnimation(31, 32, .1f));
-        animations.put("swim", spritesheet.createAnimation(29, 30, .1f));
-        animations.put("start", spritesheet.createAnimation(28, 28, .1f));
-        animations.put("jump", spritesheet.createAnimation(27, 27, .1f));
-        animations.put("hurt", spritesheet.createAnimation(26, 26, .1f));
-        animations.put("duck", spritesheet.createAnimation(25, 25, .1f));
-        animations.put("climb", spritesheet.createAnimation(23, 24, .1f));
-        animations.put("stand", spritesheet.createAnimation(22, 22, .1f));
-        //flip animation
-        animations.put("walkFlip", spritesheet.flipAnimation(animations.get("walk"), true, false));
-        animations.put("swimFlip", spritesheet.flipAnimation(animations.get("swim"), true, false));
-        animations.put("startFlip", spritesheet.flipAnimation(animations.get("start"), true, false));
-        animations.put("jumpFlip", spritesheet.flipAnimation(animations.get("jump"), true, false));
-        animations.put("hurtFlip", spritesheet.flipAnimation(animations.get("hurt"), true, false));
-        animations.put("duckFlip", spritesheet.flipAnimation(animations.get("duck"), true, false));
+        animations.put("block", spritesheet.createAnimation(0, 1, .1f));
 
         //set body definition in game world and set position
         BodyDef bodyDefinition= new BodyDef();
