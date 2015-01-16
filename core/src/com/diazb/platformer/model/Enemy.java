@@ -16,6 +16,9 @@ public class Enemy extends Sprite{
         //store in animations
         animations.put("block", spritesheet.createAnimation(0, 1, .1f));
 
+        //store in animation type
+        currentAnimation= "block";
+
         //set body definition in game world and set position
         BodyDef bodyDefinition= new BodyDef();
         bodyDefinition.type= BodyDef.BodyType.DynamicBody;

@@ -9,6 +9,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
+import com.diazb.platformer.model.Enemy;
 import com.diazb.platformer.model.Level;
 import com.diazb.platformer.model.Player;
 import com.diazb.platformer.model.Sprite;
@@ -29,7 +30,7 @@ public class LevelController {
         //render up tiles on the map
         renderer= new OrthogonalTiledMapRenderer(level.map, UNIT_SCALE);
         //apply gravity to the game
-        gameWorld= new World(new Vector2(0, 0), true);
+        gameWorld= new World(new Vector2(0, -10), true);
         //
         worldBodies= new Array<Body>();
         //display shapes
@@ -42,6 +43,7 @@ public class LevelController {
         spriteBatch.begin();
         //use sprite batch object to draw the player
         PlayerController.player.draw(spriteBatch);
+        EnemyController.enemy.draw(spriteBatch);
         spriteBatch.end();
         debugRenderer.render(gameWorld, CameraController.camera.combined);
     }

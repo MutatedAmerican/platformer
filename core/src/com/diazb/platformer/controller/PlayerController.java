@@ -49,5 +49,17 @@ public class PlayerController {
             //
             player.physicsBody.applyLinearImpulse(VELOCITY2, 0f, position.x, position.y, true);
         }
+
+        //
+        /*if(Gdx.input.isKeyPressed(Input.Keys.UP)){
+            //
+            player.physicsBody.applyLinearImpulse(VELOCITY2, 0f, position.x, position.y, true);
+        }*/
+
+        //
+        /*if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
+            //
+            player.physicsBody.applyLinearImpulse(VELOCITY2, 0f, position.x, position.y, true);
+        }*/
     }
 }

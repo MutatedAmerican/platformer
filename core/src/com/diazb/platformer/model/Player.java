@@ -30,6 +30,9 @@ public class Player extends Sprite{
         animations.put("hurtFlip", spritesheet.flipAnimation(animations.get("hurt"), true, false));
         animations.put("duckFlip", spritesheet.flipAnimation(animations.get("duck"), true, false));
 
+        //store in animation type
+        currentAnimation= "walk";
+
         //set body definition in game world and set position
         BodyDef bodyDefinition= new BodyDef();
         bodyDefinition.type= BodyDef.BodyType.DynamicBody;

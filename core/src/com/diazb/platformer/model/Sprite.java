@@ -37,8 +37,6 @@ public class Sprite {
         this.height= height* (LevelController.UNIT_SCALE);
         //store sprite-sheet.java in variable to use
         spritesheet= new Spritesheet(sheetPath, width, height);
-        //store in animation type
-        currentAnimation= "walk";
         //game time; counter of the game
         stateTime= 0f;
     }

@@ -33,9 +33,24 @@
    eJxjYBgFILAYSs8dUFfQB9weaAfQEdgwYvfvTbq7hPbAFOhXYyC2Yhxol9AOzAbi71Aa3b9vgHgVmnpuurqO+mA9EH+F0heB2J4RQq+H4mVQeiQC34F2AJWBLRoeiWCk+58cIDiIMLlguMU7el4eLv6iFvDBgkfBwAMA690XvA==
   </data>
  </layer>
- <layer name="construct2" width="60" height="15">
+ <layer name="details" width="60" height="15">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjIJRMBRA0UA7YBSMglEwaEApEPsPIjwKyAN2A+2AUUBTMFTiFwAUVgwx
   </data>
  </layer>
+ <objectgroup color="#aaff00" name="collision" width="60" height="15">
+  <object name="ground" type="solid" x="0" y="490" width="1190" height="70"/>
+  <object name="ground" type="solid" x="1330" y="630" width="140" height="70"/>
+  <object name="ground" type="solid" x="1540" y="700" width="70" height="70"/>
+  <object name="ground" type="solid" x="1680" y="770" width="70" height="70"/>
+  <object name="ground" type="slope" x="1190" y="490">
+   <polygon points="0,0 140,140 0,140 0,0 140,140 0,140 140,140 0,0 140,140"/>
+  </object>
+  <object name="ground" type="slope" x="1470" y="630">
+   <polygon points="0,0 0,70 70,70"/>
+  </object>
+  <object name="ground" type="slope" x="1610" y="700">
+   <polygon points="0,0 0,70 70,70"/>
+  </object>
+ </objectgroup>
 </map>
