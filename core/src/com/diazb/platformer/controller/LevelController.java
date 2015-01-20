@@ -1,6 +1,8 @@
 package com.diazb.platformer.controller;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -9,6 +11,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
+import com.diazb.platformer.model.Bodies;
 import com.diazb.platformer.model.Enemy;
 import com.diazb.platformer.model.Level;
 import com.diazb.platformer.model.Player;
@@ -37,6 +40,8 @@ public class LevelController {
         debugRenderer= new Box2DDebugRenderer();
         //enable to group draw 2-D sprites on the screen at once
         spriteBatch = renderer.getSpriteBatch();
+        //
+        createLevelBodies();
 }
     public static void draw(){
         //call on sprite batch to start drawing, then end
@@ -64,8 +69,21 @@ public class LevelController {
         for(Body body: worldBodies){
             //get player's data
             Sprite spriteBody= (Sprite)body.getUserData();
-            //access to its body position
-            spriteBody.position= body.getPosition();
+
+            //
+            if(spriteBody!= null){
+                //access to its body position
+                spriteBody.position= body.getPosition();
+            }
+        }
+    }
+
+    private static void createLevelBodies(){
+        MapObjects mapObjects= level.getMapObjects(level.getMapLayer("collision"));
+
+        for(MapObject mapObject: mapObjects){
+            Bodies.createBody(mapObject);
+
         }
     }
 }
