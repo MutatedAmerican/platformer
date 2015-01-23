@@ -1,6 +1,7 @@
 package com.diazb.platformer.controller;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -45,12 +46,14 @@ public class LevelController {
         createLevelBodies();
 }
     public static void draw(){
+        spriteBatch.setProjectionMatrix(CameraController.camera.combined);
         //call on sprite batch to start drawing, then end
         spriteBatch.begin();
         //use sprite batch object to draw the player
         PlayerController.player.draw(spriteBatch);
         EnemyController.enemy.draw(spriteBatch);
         spriteBatch.end();
+        spriteBatch.setProjectionMatrix(CameraController.inputCamera.combined);
         InputController.draw(spriteBatch);
         debugRenderer.render(gameWorld, CameraController.camera.combined);
     }

@@ -8,6 +8,8 @@ import com.diazb.platformer.model.Player;
 public class PlayerController {
     //create new variables to display map
     public static Player player;
+    public static String movementAction;
+    public static String specialAction;
     //
     private static final float VELOCITY= 1f;
     //
@@ -18,6 +20,8 @@ public class PlayerController {
     public static void initializeController(){
         //render the player
         player= new Player(new Vector2(8, 8), 70, 100, "img/aliens.png");
+        movementAction= "";
+        specialAction= "";
     }
 
     public static void update(float deltaTime){
@@ -39,13 +43,13 @@ public class PlayerController {
         }
 
         //
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
+        if(movementAction.equalsIgnoreCase("right")){
             //
             player.physicsBody.applyLinearImpulse(VELOCITY, 0f, position.x, position.y, true);
         }
 
         //
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+        if(movementAction.equalsIgnoreCase("left")){
             //
             player.physicsBody.applyLinearImpulse(VELOCITY2, 0f, position.x, position.y, true);
         }

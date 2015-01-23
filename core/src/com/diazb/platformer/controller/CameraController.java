@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 public class CameraController {
 
     public static OrthographicCamera camera;
+    public static OrthographicCamera inputCamera;
 
     public static void initializeController(){
 
@@ -17,9 +18,15 @@ public class CameraController {
         camera= new OrthographicCamera(14f, 26f * (height/width));
         //set the position of the camera on the level
         camera.position.set(camera.viewportWidth/2f, camera.viewportHeight/2f, 0f);
+        //
+        inputCamera= new OrthographicCamera(14f, 26f * (height/ width));
+        inputCamera.position.set(inputCamera.viewportWidth/ 2f,  inputCamera.viewportHeight/ 2f, 0);
+        inputCamera.update();
     }
 
     public static void update(){
+        //
+        camera.position.set(PlayerController.player.position.x, PlayerController.player.position.y, 0);
         //able to render the map once the camera is on the move
         camera.update();
     }
@@ -29,5 +36,11 @@ public class CameraController {
         camera.viewportHeight= 14f * height/width;
         //update camera
         camera.update();
+
+        //
+        inputCamera.viewportWidth= 14f;
+        inputCamera.viewportHeight= 14f * height / width;
+        inputCamera.position.set(inputCamera.viewportWidth/ 2f, inputCamera.viewportHeight/ 2f, 0);
+        inputCamera.update();
     }
 }
