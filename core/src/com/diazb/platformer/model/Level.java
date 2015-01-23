@@ -1,7 +1,6 @@
 package com.diazb.platformer.model;
 
 import com.badlogic.gdx.maps.MapLayer;
-import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;

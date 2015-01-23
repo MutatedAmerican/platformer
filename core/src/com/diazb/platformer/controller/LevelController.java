@@ -13,6 +13,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.diazb.platformer.model.Bodies;
 import com.diazb.platformer.model.Enemy;
+import com.diazb.platformer.model.InputControl;
 import com.diazb.platformer.model.Level;
 import com.diazb.platformer.model.Player;
 import com.diazb.platformer.model.Sprite;
@@ -50,6 +51,7 @@ public class LevelController {
         PlayerController.player.draw(spriteBatch);
         EnemyController.enemy.draw(spriteBatch);
         spriteBatch.end();
+        InputController.draw(spriteBatch);
         debugRenderer.render(gameWorld, CameraController.camera.combined);
     }
 

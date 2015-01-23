@@ -5,8 +5,10 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.diazb.platformer.controller.CameraController;
 import com.diazb.platformer.controller.EnemyController;
+import com.diazb.platformer.controller.InputController;
 import com.diazb.platformer.controller.LevelController;
 import com.diazb.platformer.controller.PlayerController;
+import com.diazb.platformer.model.InputControl;
 
 public class GameScreen implements Screen{
 
@@ -19,6 +21,8 @@ public class GameScreen implements Screen{
         PlayerController.initializeController();
         //initalize EnemyController
         EnemyController.initializeController();
+        //initalize InputController
+        InputController.initializeController();
     }
 
     @Override
