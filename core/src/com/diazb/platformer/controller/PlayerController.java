@@ -16,6 +16,8 @@ public class PlayerController {
     private static final float VELOCITY2= -1f;
     //
     private static final float MAX_VELOCITY= 5f;
+    //
+    private static final float JUMP_VELOCITY= 1f;
 
     public static void initializeController(){
         //render the player
@@ -55,10 +57,10 @@ public class PlayerController {
         }
 
         //
-        /*if(Gdx.input.isKeyPressed(Input.Keys.UP)){
+        if(movementAction.equalsIgnoreCase("jump")){
             //
-            player.physicsBody.applyLinearImpulse(VELOCITY2, 0f, position.x, position.y, true);
-        }*/
+            player.physicsBody.applyLinearImpulse(0f, JUMP_VELOCITY, position.x, position.y, true);
+        }
 
         //
         /*if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
