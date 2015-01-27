@@ -14,13 +14,15 @@ public class InputController {
 
     public static void initializeController(){
         spriteSheet= new Spritesheet("img/touch-controls.png", 80, 80);
-        left= new InputControl(new Vector2(0,4), spriteSheet.spriteFrames[0], "left");
+        left= new InputControl(new Vector2(0,0), spriteSheet.spriteFrames[0], "left");
+        right= new InputControl(new Vector2(2,0), spriteSheet.spriteFrames[1], "right");
         Gdx.input.setInputProcessor(createInputAdapter());
     }
 
     public static void draw(Batch spriteBatch){
         spriteBatch.begin();
         left.draw(spriteBatch);
+        right.draw(spriteBatch);
         spriteBatch.end();
     }
 
@@ -28,13 +30,21 @@ public class InputController {
         return new InputAdapter(){
             @Override
                 public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-                PlayerController.movementAction= "right";
+                //
+                if(left.getBoundingBox().contains(screenX, Gdx.graphics.getHeight()- screenY)){
+                    PlayerController.movementAction= "left";
+                }
+
+                else if(right.getBoundingBox().contains(screenX, Gdx.graphics.getHeight()- screenY)){
+                    PlayerController.movementAction= "right";
+                }
+
                 return true;
             }
 
             @Override
             public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-                PlayerController.movementAction= "right";
+                PlayerController.movementAction= "";
                 return true;
             }
         };

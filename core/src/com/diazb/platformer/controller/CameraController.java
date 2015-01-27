@@ -8,6 +8,9 @@ public class CameraController {
     public static OrthographicCamera camera;
     public static OrthographicCamera inputCamera;
 
+    public static float widthScale;
+    public static float heightScale;
+
     public static void initializeController(){
 
         //get the height and width of the screen and store them into variables
@@ -42,5 +45,9 @@ public class CameraController {
         inputCamera.viewportHeight= 14f * height / width;
         inputCamera.position.set(inputCamera.viewportWidth/ 2f, inputCamera.viewportHeight/ 2f, 0);
         inputCamera.update();
+
+        //how many pixels make up a unit, width wise
+        widthScale= width/ inputCamera.viewportWidth* LevelController.UNIT_SCALE;
+        heightScale=height/ inputCamera.viewportWidth* LevelController.UNIT_SCALE;
     }
 }

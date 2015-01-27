@@ -2,7 +2,9 @@ package com.diazb.platformer.model;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.diazb.platformer.controller.CameraController;
 import com.diazb.platformer.controller.LevelController;
 
 public class InputControl {
@@ -26,5 +28,15 @@ public class InputControl {
 
     public void draw(Batch spriteBatch){
         spriteBatch.draw(textureRegion, position.x, position.y, width* LevelController.UNIT_SCALE, height* LevelController.UNIT_SCALE);
+    }
+
+    public Rectangle getBoundingBox(){
+        //tell where is the input control
+        //
+        return new Rectangle(position.x/ LevelController.UNIT_SCALE* CameraController.widthScale,
+                position.y/ LevelController.UNIT_SCALE* CameraController.heightScale,
+                width* CameraController.widthScale,
+                height* CameraController.heightScale);
+
     }
 }

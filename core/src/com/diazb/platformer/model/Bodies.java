@@ -39,36 +39,36 @@ public class Bodies {
             physicsBody.createFixture(fixturedefiniton);
             rectangleShape.dispose();
         }
-//
-//        else if(bodyType.equalsIgnoreCase("slope")){
-//            //create solid body in level
-//            PolygonMapObject polygonObject= (PolygonMapObject) mapObject;
-//            BodyDef bodydefintion= new BodyDef();
-//            bodydefintion.type= BodyDef.BodyType.StaticBody;
-//            bodydefintion.position.set(polygonObject.getPolygon().getX()* LevelController.UNIT_SCALE,
-//                    polygonObject.getPolygon().getY()* LevelController.UNIT_SCALE);
-//
-//            //
-//            Body physicsBody= LevelController.gameWorld.createBody(bodydefintion);
-//            PolygonShape polygonShape= new PolygonShape();
-//            float[] transformedVertices= new float[polygonObject.getPolygon().getVertices().length];
-//
-//            //
-//            for(int index= 0; index < transformedVertices.length; index++){
-//                transformedVertices[index]= polygonObject.getPolygon().getVertices()[index] * LevelController.UNIT_SCALE;
-//            }
-//
-//            //
-//            polygonShape.set(transformedVertices);
-//
-//            //
-//            FixtureDef fixtureDefiniton= new FixtureDef();
-//            fixtureDefiniton.shape= polygonShape;
-//
-//            //
-//            physicsBody.createFixture(fixtureDefiniton);
-//            polygonShape.dispose();
-//        }
+
+        else if(bodyType.equalsIgnoreCase("slope")){
+            //create solid body in level
+            PolygonMapObject polygonObject= (PolygonMapObject) mapObject;
+            BodyDef bodydefintion= new BodyDef();
+            bodydefintion.type= BodyDef.BodyType.StaticBody;
+            bodydefintion.position.set(polygonObject.getPolygon().getX()* LevelController.UNIT_SCALE,
+                   polygonObject.getPolygon().getY()* LevelController.UNIT_SCALE);
+
+            //
+            Body physicsBody= LevelController.gameWorld.createBody(bodydefintion);
+            PolygonShape polygonShape= new PolygonShape();
+            float[] transformedVertices= new float[polygonObject.getPolygon().getVertices().length];
+
+            //
+           for(int index= 0; index < transformedVertices.length; index++){
+                transformedVertices[index]= polygonObject.getPolygon().getVertices()[index] * LevelController.UNIT_SCALE;
+            }
+
+            //
+            polygonShape.set(transformedVertices);
+
+            //
+            FixtureDef fixtureDefiniton= new FixtureDef();
+            fixtureDefiniton.shape= polygonShape;
+
+            //
+            physicsBody.createFixture(fixtureDefiniton);
+            polygonShape.dispose();
+        }
     }
 
 }
