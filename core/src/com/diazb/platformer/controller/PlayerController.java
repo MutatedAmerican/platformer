@@ -1,7 +1,5 @@
 package com.diazb.platformer.controller;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.diazb.platformer.model.Player;
 
@@ -15,7 +13,7 @@ public class PlayerController {
     //
     private static final float VELOCITY2= -1f;
     //
-    private static final float MAX_VELOCITY= 5f;
+    private static final float MAX_VELOCITY= 2f;
     //
     private static final float JUMP_VELOCITY= 1f;
 
@@ -57,7 +55,7 @@ public class PlayerController {
         }
 
         //
-        if(movementAction.equalsIgnoreCase("jump")){
+        if(specialAction.equalsIgnoreCase("jump")){
             //
             player.physicsBody.applyLinearImpulse(0f, JUMP_VELOCITY, position.x, position.y, true);
         }

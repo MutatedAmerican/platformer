@@ -38,19 +38,9 @@
    eJxjYBgFo2AUjIJRMBRA0UA7YBSMglEwaEApEPsPIjwKyAN2A+2AUUBTMFTiFwAUVgwx
   </data>
  </layer>
- <objectgroup color="#aaff00" name="collision" width="60" height="15">
-  <object name="ground" type="solid" x="0" y="490" width="1190" height="70"/>
-  <object name="ground" type="solid" x="1330" y="630" width="140" height="70"/>
-  <object name="ground" type="solid" x="1540" y="700" width="70" height="70"/>
-  <object name="ground" type="solid" x="1680" y="770" width="2520" height="70"/>
-  <object name="ground" type="slope" x="1470" y="630">
-   <polygon points="0,0 0,70 70,70"/>
-  </object>
-  <object name="ground" type="slope" x="1610" y="700">
-   <polygon points="0,0 0,70 70,70"/>
-  </object>
-  <object name="ground" type="slope" x="1190" y="490">
-   <polygon points="0,0 0,140 140,140"/>
+ <objectgroup color="#ff0000" name="collision" width="60" height="15">
+  <object name="ground" type="ground" x="0" y="490">
+   <polyline points="0,0 1190,0 1330,140 1470,140 1540,210 1610,210 1680,280 4200,280"/>
   </object>
  </objectgroup>
 </map>

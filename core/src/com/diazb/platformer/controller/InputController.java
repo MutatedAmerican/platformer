@@ -1,6 +1,7 @@
 package com.diazb.platformer.controller;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
@@ -51,7 +52,7 @@ public class InputController {
                             PlayerController.movementAction = "right";
                         }
                         else if (inputControl.action.equalsIgnoreCase("jump")) {
-                            PlayerController.movementAction = "jump";
+                            PlayerController.specialAction = "jump";
                         }
                     }
                 }
@@ -70,16 +71,40 @@ public class InputController {
                             PlayerController.movementAction = "";
                         }
                         else if (inputControl.action.equalsIgnoreCase("jump")) {
-                            PlayerController.movementAction = "";
+                            PlayerController.specialAction = "";
                         }
                     }
+                }
+                return true;
+            }
+
+            @Override
+            public boolean keyDown(int keycode) {
+                if (keycode== Input.Keys.RIGHT){
+                    PlayerController.movementAction= "right";
+                }
+                else if (keycode== Input.Keys.LEFT){
+                    PlayerController.movementAction= "left";
+                }
+                else if (keycode== Input.Keys.UP){
+                    PlayerController.specialAction= "jump";
+                }
+                return true;
+            }
+
+            @Override
+            public boolean keyUp(int keycode) {
+                if (keycode== Input.Keys.RIGHT){
+                    PlayerController.movementAction= "right";
+                }
+                else if (keycode== Input.Keys.LEFT){
+                    PlayerController.movementAction= "left";
+                }
+                else if (keycode== Input.Keys.UP){
+                    PlayerController.specialAction= "jump";
                 }
                 return true;
             }
         };
     }
 }
-
-
-
-
