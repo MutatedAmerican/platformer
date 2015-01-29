@@ -41,6 +41,8 @@ public class Player extends Sprite{
         physicsBody= LevelController.gameWorld.createBody(bodyDefinition);
         //create shape in game world
         physicsBody.setUserData(this);
+        //
+        physicsBody.setFixedRotation(true);
         //create polygon shape
         PolygonShape rectangleShape= new PolygonShape();
         //set height
@@ -49,6 +51,8 @@ public class Player extends Sprite{
         FixtureDef fixtureDefinition= new FixtureDef();
         //attach shape to out body
         fixtureDefinition.shape= rectangleShape;
+        //
+        fixtureDefinition.density=1f;
         //apply shape to player body
         physicsBody.createFixture(fixtureDefinition);
         //deletes the shape
