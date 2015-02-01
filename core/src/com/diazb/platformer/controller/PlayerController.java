@@ -8,6 +8,14 @@ public class PlayerController {
     public static Player player;
     public static String movementAction;
     public static String specialAction;
+
+    //
+    private enum State{
+     Idle, Walk, Run, Swim, Duck, Stand, Jump, Climb, Hurt
+    }
+
+    //
+    private static State playerState;
     //
     private static final float VELOCITY= 1f;
     //
@@ -22,6 +30,7 @@ public class PlayerController {
         player= new Player(new Vector2(8, 8), 70, 100, "img/aliens.png");
         movementAction= "";
         specialAction= "";
+        playerState= State.Idle;
     }
 
     public static void update(float deltaTime){
@@ -46,12 +55,14 @@ public class PlayerController {
         if(movementAction.equalsIgnoreCase("right")){
             //
             player.physicsBody.applyLinearImpulse(VELOCITY, 0f, position.x, position.y, true);
+            player.direction= "right";
         }
 
         //
         if(movementAction.equalsIgnoreCase("left")){
             //
             player.physicsBody.applyLinearImpulse(VELOCITY2, 0f, position.x, position.y, true);
+            player.direction= "left";
         }
 
         //
@@ -60,10 +71,41 @@ public class PlayerController {
             player.physicsBody.applyLinearImpulse(0f, JUMP_VELOCITY, position.x, position.y, true);
         }
 
-        //
-        /*if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-            //
-            player.physicsBody.applyLinearImpulse(VELOCITY2, 0f, position.x, position.y, true);
-        }*/
+        if(Math.abs(velocity.x)>0){
+            playerState= State.Walk;
+        }
+
+        else{
+            playerState=State.Idle;
+        }
+    setCurrentAnimation();
+
+    }
+
+    private static void setCurrentAnimation(){
+        if (player.direction.equals("right")){
+            setRightAnimation();
+        }
+        else if (player.direction.equals("left")){
+            setLeftAnimation();
+        }
+    }
+
+    private static void setRightAnimation(){
+        if (playerState== State.Walk){
+            player.currentAnimation= "walk";
+        }
+        else if (playerState== State.Idle){
+            player.currentAnimation= "stand";
+        }
+    }
+
+    private static void setLeftAnimation(){
+        if (playerState== State.Walk){
+            player.currentAnimation= "walkFlip";
+        }
+        else if (playerState== State.Idle){
+            player.currentAnimation= "stand";
+        }
     }
 }

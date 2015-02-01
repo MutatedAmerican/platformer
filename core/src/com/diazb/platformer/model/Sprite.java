@@ -25,6 +25,8 @@ public class Sprite {
     protected float stateTime;
     //create storage for animations
     protected HashMap<String, Animation> animations;
+    //
+    public String direction;
 
     public Sprite(Vector2 position, int width,int height, String sheetPath){
         //origin at the screen [(0,0) is bottom left]
@@ -39,6 +41,8 @@ public class Sprite {
         spritesheet= new Spritesheet(sheetPath, width, height);
         //game time; counter of the game
         stateTime= 0f;
+        //
+        direction= "right";
     }
      //draw character
     public void draw(Batch spriteBatch){
