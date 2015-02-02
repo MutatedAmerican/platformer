@@ -75,6 +75,10 @@ public class PlayerController {
             playerState= State.Walk;
         }
 
+        else if(Math.abs(velocity.y)>0){
+            playerState= State.Jump;
+        }
+
         else{
             playerState=State.Idle;
         }
@@ -86,7 +90,7 @@ public class PlayerController {
         if (player.direction.equals("right")){
             setRightAnimation();
         }
-        else if (player.direction.equals("left")){
+        else if (player.direction.equals("left")) {
             setLeftAnimation();
         }
     }
@@ -98,6 +102,9 @@ public class PlayerController {
         else if (playerState== State.Idle){
             player.currentAnimation= "stand";
         }
+        else if (playerState== State.Jump){
+            player.currentAnimation= "jump";
+        }
     }
 
     private static void setLeftAnimation(){
@@ -107,5 +114,9 @@ public class PlayerController {
         else if (playerState== State.Idle){
             player.currentAnimation= "stand";
         }
+        else if (playerState== State.Jump){
+            player.currentAnimation= "jumpFlip";
+        }
     }
 }
+
