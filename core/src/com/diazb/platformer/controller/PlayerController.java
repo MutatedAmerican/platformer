@@ -3,7 +3,7 @@ package com.diazb.platformer.controller;
 import com.badlogic.gdx.math.Vector2;
 import com.diazb.platformer.model.Player;
 
-public class PlayerController {
+public class PlayerController extends MusicController{
     //create new variables to display map
     public static Player player;
     public static String movementAction;
@@ -69,6 +69,8 @@ public class PlayerController {
         if(specialAction.equalsIgnoreCase("jump")){
             //
             player.physicsBody.applyLinearImpulse(0f, JUMP_VELOCITY, position.x, position.y, true);
+            //music controller now
+            //sound.put("jump", MusicController.play());
         }
 
         if(Math.abs(velocity.x)>0){

@@ -7,12 +7,15 @@ import com.diazb.platformer.controller.CameraController;
 import com.diazb.platformer.controller.EnemyController;
 import com.diazb.platformer.controller.InputController;
 import com.diazb.platformer.controller.LevelController;
+import com.diazb.platformer.controller.MusicController;
 import com.diazb.platformer.controller.PlayerController;
 import com.diazb.platformer.model.InputControl;
 
 public class GameScreen implements Screen{
 
     public GameScreen() {
+        //
+        MusicController.initializeMusicController();
         //initalize LevelController
         LevelController.initializeController();
         //initalize CameraController
