@@ -8,6 +8,7 @@ public class PlayerController extends MusicController{
     public static Player player;
     public static String movementAction;
     public static String specialAction;
+    public static Boolean grounded;
 
     //
     private enum State{
