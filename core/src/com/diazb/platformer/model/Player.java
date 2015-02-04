@@ -47,16 +47,26 @@ public class Player extends Sprite{
         PolygonShape rectangleShape= new PolygonShape();
         //set height
         rectangleShape.setAsBox(this.width/2f, this.height/2f, new Vector2(this.width/2f, this.height/2f), 0f);
+        //tell if contact on ground
+        PolygonShape sensorShape= new PolygonShape();
+        sensorShape.setAsBox(this.width/2.5f, this.height/32, new Vector2(this.width/2, 0), 0f);
         //create new fixture definition
         FixtureDef fixtureDefinition= new FixtureDef();
         //attach shape to out body
         fixtureDefinition.shape= rectangleShape;
         //
         fixtureDefinition.density=1f;
+        //
+        FixtureDef fixtureDefinitionSensor= new FixtureDef();
+        fixtureDefinitionSensor.shape= sensorShape;
+        //tells its a sensor, remove any physics involved-still collision
+        fixtureDefinitionSensor.isSensor= true;
         //apply shape to player body
         physicsBody.createFixture(fixtureDefinition);
+        physicsBody.createFixture(fixtureDefinitionSensor);
         //deletes the shape
         rectangleShape.dispose();
+        sensorShape.dispose();
     }
     //draw character
     public void draw(Batch spriteBatch){
