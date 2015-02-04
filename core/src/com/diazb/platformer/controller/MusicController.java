@@ -13,7 +13,7 @@ public class MusicController {
 
     public static void initializeMusicController(){
         music = Gdx.audio.newMusic(Gdx.files.internal("music/backgroundsong.mp3"));
-        Sound sound = Gdx.audio.newSound(Gdx.files.internal("music/jumpsound.mp3"));
+        //Sound sound = Gdx.audio.newSound(Gdx.files.internal("music/jumpsound.mp3"));
     }
 
     public static void play(){

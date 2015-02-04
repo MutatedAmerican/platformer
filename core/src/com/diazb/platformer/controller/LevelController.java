@@ -13,6 +13,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.diazb.platformer.model.Bodies;
+import com.diazb.platformer.model.CollisionListener;
 import com.diazb.platformer.model.Enemy;
 import com.diazb.platformer.model.InputControl;
 import com.diazb.platformer.model.Level;
@@ -36,6 +37,8 @@ public class LevelController {
         renderer= new OrthogonalTiledMapRenderer(level.map, UNIT_SCALE);
         //apply gravity to the game
         gameWorld= new World(new Vector2(0, -10), true);
+        //
+        gameWorld.setContactListener(new CollisionListener());
         //
         worldBodies= new Array<Body>();
         //display shapes
