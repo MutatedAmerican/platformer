@@ -2,6 +2,8 @@ package com.diazb.platformer.controller;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector3;
 
 public class CameraController {
 
@@ -32,7 +34,20 @@ public class CameraController {
         camera.position.set(PlayerController.player.position.x, PlayerController.player.position.y, 0);
         //able to render the map once the camera is on the move
         camera.update();
+        
     }
+
+    public static Vector3 clamp(float min, float max){
+        inputCamera.zoom = MathUtils.clamp(inputCamera.zoom, 0.1f, 100/inputCamera.viewportWidth);
+
+        float effectiveViewportWidth = inputCamera.viewportWidth * inputCamera.zoom;
+        float effectiveViewportHeight = inputCamera.viewportHeight * inputCamera.zoom;
+
+        float positionx = MathUtils.clamp(inputCamera.position.x, effectiveViewportWidth / 2f, 100 - effectiveViewportWidth / 2f);
+        float positiony = MathUtils.clamp(inputCamera.position.y, effectiveViewportHeight / 2f, 100 - effectiveViewportHeight / 2f);
+        return new Vector3(float positionx, float positiony, 0f);
+    }
+
     public static void resize(int width, int height){
         //call on camera object and set viewportWidth and viewportHeight
         camera.viewportWidth= 14f;

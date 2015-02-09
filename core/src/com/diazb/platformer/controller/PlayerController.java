@@ -22,9 +22,9 @@ public class PlayerController extends MusicController{
     //
     private static final float VELOCITY2= -1f;
     //
-    private static final float MAX_VELOCITY= 2f;
+    private static final float MAX_VELOCITY= 3f;
     //
-    private static final float JUMP_VELOCITY= 1f;
+    private static final float JUMP_VELOCITY= 7f;
 
     public static void initializeController(){
         //render the player
@@ -67,9 +67,10 @@ public class PlayerController extends MusicController{
         }
 
         //
-        if(specialAction.equalsIgnoreCase("jump")){
+        if(specialAction.equalsIgnoreCase("jump") && PlayerController.grounded== true){
             //
             player.physicsBody.applyLinearImpulse(0f, JUMP_VELOCITY, position.x, position.y, true);
+            grounded= false;
             //music controller now
             //sound.put("jump", MusicController.play());
         }
@@ -77,14 +78,15 @@ public class PlayerController extends MusicController{
         if(Math.abs(velocity.x)>0){
             playerState= State.Walk;
         }
-
-        else if(Math.abs(velocity.y)>0){
-            playerState= State.Jump;
-        }
-
         else{
             playerState=State.Idle;
         }
+
+        if(Math.abs(velocity.y)>0){
+            playerState= State.Jump;
+        }
+
+
     setCurrentAnimation();
 
     }

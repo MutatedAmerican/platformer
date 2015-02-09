@@ -95,13 +95,13 @@ public class InputController {
             @Override
             public boolean keyUp(int keycode) {
                 if (keycode== Input.Keys.RIGHT){
-                    PlayerController.movementAction= "right";
+                    PlayerController.movementAction= "";
                 }
                 else if (keycode== Input.Keys.LEFT){
-                    PlayerController.movementAction= "left";
+                    PlayerController.movementAction= "";
                 }
                 else if (keycode== Input.Keys.UP){
-                    PlayerController.specialAction= "jump";
+                    PlayerController.specialAction= "";
                 }
                 return true;
             }
