@@ -31,7 +31,7 @@ public class GameScreen implements Screen{
     @Override
     public void render(float delta) {
         //set the color of the clear
-        Gdx.gl.glClearColor(0.81f, 0.98f, 1f, 1f);
+        Gdx.gl.glClearColor(0f, 0f, 0f, 0f);
         //clear the screen
         Gdx.gl.glClear(GL20. GL_COLOR_BUFFER_BIT);
         //update CameraController

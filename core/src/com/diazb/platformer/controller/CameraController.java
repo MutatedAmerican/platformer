@@ -13,8 +13,11 @@ public class CameraController {
     public static float widthScale;
     public static float heightScale;
 
-    public static float mapHeight;
-    public static float mapWidth;
+    public static float maxHeight;
+    public static float maxWidth;
+
+    public static float minHeight;
+    public static float minWidth;
 
     public static void initializeController(){
 
@@ -41,21 +44,15 @@ public class CameraController {
     }
 
     public static Vector3 clamp(){
-        mapWidth=60f;
-        mapHeight=15f;
+        maxWidth=60f;
+        maxHeight=15f;
 
-        //minHeight;
-        //maxHeight;
+        minWidth= camera.viewportWidth / 2f;
+        minHeight= camera.viewportHeight / 2f;
 
-        //minWidth;
-        //maxWidth;
-
-        //float ViewportWidth = camera.viewportWidth * camera;
-        //float ViewportHeight = camera.viewportHeight * camera;
-
-        //float positionx = MathUtils.clamp(camera.position.x, ViewportWidth / 2f, 100 - ViewportWidth / 2f);
-        //float positiony = MathUtils.clamp(camera.position.y, ViewportHeight / 2f, 100 - ViewportHeight / 2f);
-        //return new Vector3(positionx, positiony, 0f);
+        float positionx = MathUtils.clamp(PlayerController.player.position.x, minWidth, maxWidth);
+        float positiony = MathUtils.clamp(PlayerController.player.position.y, minHeight, maxHeight);
+        return new Vector3(positionx, positiony, 0f);
     }
 
     public static void resize(int width, int height){
