@@ -13,6 +13,9 @@ public class CameraController {
     public static float widthScale;
     public static float heightScale;
 
+    public static float mapHeight;
+    public static float mapWidth;
+
     public static void initializeController(){
 
         //get the height and width of the screen and store them into variables
@@ -31,21 +34,28 @@ public class CameraController {
 
     public static void update(){
         //
-        camera.position.set(PlayerController.player.position.x, PlayerController.player.position.y, 0);
+        camera.position.set(clamp());
         //able to render the map once the camera is on the move
         camera.update();
-        
+
     }
 
-    public static Vector3 clamp(float min, float max){
-        inputCamera.zoom = MathUtils.clamp(inputCamera.zoom, 0.1f, 100/inputCamera.viewportWidth);
+    public static Vector3 clamp(){
+        mapWidth=60f;
+        mapHeight=15f;
 
-        float effectiveViewportWidth = inputCamera.viewportWidth * inputCamera.zoom;
-        float effectiveViewportHeight = inputCamera.viewportHeight * inputCamera.zoom;
+        //minHeight;
+        //maxHeight;
 
-        float positionx = MathUtils.clamp(inputCamera.position.x, effectiveViewportWidth / 2f, 100 - effectiveViewportWidth / 2f);
-        float positiony = MathUtils.clamp(inputCamera.position.y, effectiveViewportHeight / 2f, 100 - effectiveViewportHeight / 2f);
-        return new Vector3(float positionx, float positiony, 0f);
+        //minWidth;
+        //maxWidth;
+
+        //float ViewportWidth = camera.viewportWidth * camera;
+        //float ViewportHeight = camera.viewportHeight * camera;
+
+        //float positionx = MathUtils.clamp(camera.position.x, ViewportWidth / 2f, 100 - ViewportWidth / 2f);
+        //float positiony = MathUtils.clamp(camera.position.y, ViewportHeight / 2f, 100 - ViewportHeight / 2f);
+        //return new Vector3(positionx, positiony, 0f);
     }
 
     public static void resize(int width, int height){
