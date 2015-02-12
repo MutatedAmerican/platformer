@@ -48,7 +48,7 @@ public class LevelController {
         //
         createLevelBodies();
         //
-        MusicController.play();
+        MusicController.play("music");
 }
     public static void draw(){
         spriteBatch.setProjectionMatrix(CameraController.camera.combined);

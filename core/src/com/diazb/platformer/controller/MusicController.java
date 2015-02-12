@@ -9,19 +9,26 @@ import java.util.HashMap;
 public class MusicController {
     public static Music music;
 
-    protected HashMap<String, Sound> sound;
+    protected static Sound sound;
 
     public static void initializeMusicController(){
         music = Gdx.audio.newMusic(Gdx.files.internal("music/backgroundsong.mp3"));
-        //Sound sound = Gdx.audio.newSound(Gdx.files.internal("music/jumpsound.mp3"));
+        sound = Gdx.audio.newSound(Gdx.files.internal("music/jumpsound.mp3"));
     }
 
-    public static void play(){
-        music.play();
-        // sets the volume to half the maximum volume
-        music.setVolume(0.5f);
-        // will repeat playback until music.stop() is called
-        music.setLooping(true);
+    public static void play(String soundName){
+        if (soundName.equalsIgnoreCase("music")){
+            music.play();
+            //sound.play(1.0f);
+            // sets the volume to half the maximum volume
+            music.setVolume(0.5f);
+            // will repeat playback until music.stop() is called
+            music.setLooping(true);
+        }
+
+        if (soundName.equalsIgnoreCase("sound")){
+            sound.play(1.0f);
+        }
     }
 
 

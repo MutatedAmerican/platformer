@@ -53,6 +53,7 @@ public class InputController {
                         }
                         else if (inputControl.action.equalsIgnoreCase("jump")) {
                             PlayerController.specialAction = "jump";
+                            MusicController.sound.play();
                         }
                     }
                 }
@@ -88,6 +89,7 @@ public class InputController {
                 }
                 else if (keycode== Input.Keys.UP){
                     PlayerController.specialAction= "jump";
+                    MusicController.sound.play();
                 }
                 return true;
             }
