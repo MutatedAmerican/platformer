@@ -25,29 +25,32 @@
  </layer>
  <layer name="background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJzt0T0KgDAMhuGczAMIbuJB/R1Eaz2GehhT7CAdJQmp7QfP0ikvtQCwoB3SmIXce6IjcMmfxrLc+2xErTdJH8U41ztDOr0rMmgL3jvUe4PwTZyrCJTiV39fQSSWZqpeJ4b/puwN2zV2c/W+uxtFuHudWpHc++/eGwp9fl8=
+   eJxjYGBgOAjEe5HwIYbhDYjx72Ik9lx6OIpM8ASIHyPhR1jU4PPvbSC+hQffoZXDyQQjzb8gcAaIjwPxWRzyo/5FBduAeCMWvJ0WjiUBoKddGB71LyrYB8T7kfABNPnNQLwFC95KVdeTB2B+w4ax+deXCtiLZr4hDEj1rx2V8ED5e6D8i+xvevr9JBCfwoFPQ9WUIqmntn+x+Z3agJK8R0v/wnAolTE93EwJDqEyHmj/0Nu/iRRgAJeVyQE=
   </data>
  </layer>
  <layer name="construct" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFILAYSs8dUFfQB9weaAfQEdgwYvfvTbq7hPbAFOhXYyC2Yhxol9AOzAbi71Aa3b9vgHgVmnpuurqO+mA9EH+F0heB2J4RQq+H4mVQeiQC34F2AJWBLRoeiWCk+58cIDiIMLlguMU7el4eLv6iFvDBgkfBwAMA690XvA==
+   eJxjYICAD2j0cAfv0ejhDkb9y8Bgw4hg/0ZTj84fagDdv6ZAvxoDsRUjLh2DGywhIE+Mf3/QwF20Ap8JyL8D4u9QGgSw+fctlF5DdddRH3wiQs1XJPZFIHZghNDoYDl1nEQxeAHE87FgEID59yUe/bZomFggNUB5/BUeuY9kmkmK/wfK32+AeBWUhoHvdHYDst8FqYzRwSkgXoYm9hWLOkoAOel+MAP0vDxc/EUt4IMFj4KBBwCuUy8Q
   </data>
  </layer>
  <layer name="details" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMBRA0UA7YBSMglEwaEApEPsPIjwKyAN2A+2AUUBTMFTiFwAUVgwx
+   eJxjYBgFo2AUjIJRMAoGNygaaAcMUuCFxuceEFfQH6D7m5ZgsIUpzO+lQOxPZTwK6A/sBtoBo4CmYKjELwDLqAiE
   </data>
  </layer>
  <objectgroup color="#ff0000" name="collision" width="60" height="15">
   <object name="ground" type="ground" x="0" y="490">
-   <polyline points="0,0 1190,0 1330,140 1470,140 1540,210 1610,210 1680,280 4200,280"/>
+   <polyline points="0,0 0,-490 4200,-490 4200,280"/>
   </object>
   <object name="ground" type="ground" x="0" y="490">
-   <polyline points="0,0 0,-490 4200,-490 4200,280"/>
+   <polyline points="0,0 0,70 1190,70 1260,140 1330,140 1400,210 1540,210 1610,280 1750,280 2800,280 2800,350 3150,350 3150,280 4200,280"/>
   </object>
  </objectgroup>
  <objectgroup name="blocks" width="60" height="15">
-  <object name="block" type="block" x="980" y="350" width="70" height="70"/>
-  <object name="block" type="block" x="980" y="420" width="70" height="70"/>
+  <object name="block" type="block" x="2730" y="630" width="70" height="70"/>
+  <object name="block" type="block" x="2660" y="630" width="70" height="70"/>
+  <object name="block" type="block" x="2590" y="630" width="70" height="70"/>
+  <object name="block" type="block" x="2520" y="630" width="70" height="70"/>
+  <object name="block" type="block" x="2450" y="630" width="70" height="70"/>
  </objectgroup>
 </map>
