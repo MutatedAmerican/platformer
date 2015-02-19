@@ -9,7 +9,7 @@ public class MusicController {
     protected static Sound sound;
 
     public static void initializeMusicController(){
-        music = Gdx.audio.newMusic(Gdx.files.internal("music/backgroundsong.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/backgroundsong2.mp3"));
         sound = Gdx.audio.newSound(Gdx.files.internal("music/jumpsound.mp3"));
     }
 

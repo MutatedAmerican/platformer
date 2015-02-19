@@ -80,10 +80,14 @@ public class PlayerController extends MusicController{
             playerState=State.Idle;
         }
 
+        if(specialAction.equalsIgnoreCase("duck") && PlayerController.grounded== true){
+            //
+            playerState=State.Duck;
+        }
+
         if(Math.abs(velocity.y)>0){
             playerState= State.Jump;
         }
-
 
     setCurrentAnimation();
 
@@ -108,6 +112,9 @@ public class PlayerController extends MusicController{
         else if (playerState== State.Jump){
             player.currentAnimation= "jump";
         }
+        else if (playerState== State.Duck){
+            player.currentAnimation= "duck";
+        }
     }
 
     private static void setLeftAnimation(){
@@ -119,6 +126,9 @@ public class PlayerController extends MusicController{
         }
         else if (playerState== State.Jump){
             player.currentAnimation= "jumpFlip";
+        }
+        else if (playerState== State.Duck){
+            player.currentAnimation= "duckFlip";
         }
     }
 }
