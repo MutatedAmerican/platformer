@@ -71,8 +71,6 @@ public class PlayerController extends MusicController{
             //
             player.physicsBody.applyLinearImpulse(0f, JUMP_VELOCITY, position.x, position.y, true);
             grounded= false;
-            //music controller now
-            //sound.put("jump", MusicController.play());
         }
 
         if(Math.abs(velocity.x)>0){
